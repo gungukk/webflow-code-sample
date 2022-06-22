@@ -16,7 +16,10 @@ res = conn.getresponse()
 data = res.read()
 
 if res.status == 200: 
-	print("Site has been successfully published at:", datetime.now())
+	success_statement = "Site has been successfully published at: " + str(datetime.now()) +"\n"
+	print(success_statement)
+	f = open("log.txt", "a")
+	f.write(success_statement)
+	f.close()
 else: 
 	print (data.decode("utf-8"))
-
